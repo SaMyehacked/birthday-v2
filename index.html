@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ AYAN · birthday spark ✨</title>
+    <!-- Font + Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* DEEP SPACE THEME — name fixed: AYAN */
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 30% 10%, #1b102b, #080318);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* MAIN CARD · loads with animation */
+        .cosmic-birthday {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(15, 8, 28, 0.55);
+            backdrop-filter: blur(20px) saturate(200%);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 160, 255, 0.4);
+            border-radius: 70px;
+            padding: 40px 30px 30px;
+            box-shadow: 0 40px 70px rgba(0,0,0,0.8), 0 0 120px #c25eff, 0 0 30px #f6f inset;
+            transform: scale(0.92);
+            opacity: 0;
+            animation: portalPop 1.2s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+        }
+
+        @keyframes portalPop {
+            0% { opacity: 0; transform: scale(0.4) rotate(-3deg); filter: blur(12px); }
+            60% { opacity: 0.9; transform: scale(1.02) rotate(0.5deg); filter: blur(0); }
+            100% { opacity: 1; transform: scale(1) rotate(0); }
+        }
+
+        /* TITLE with extra glow — name fixed as AYAN (hardcoded everywhere) */
+        .glow-name-title {
+            font-size: clamp(3.8rem, 15vw, 7rem);
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        .glow-name-title span {
+            display: inline-block;
+            background: linear-gradient(145deg, #fedc8a, #ffabf0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px #fbff73, 0 0 50px #ff62e2, 0 0 90px #b536ff;
+            animation: flickerTitle 3s infinite alternate;
+        }
+        @keyframes flickerTitle {
+            0% { text-shadow: 0 0 15px magenta, 0 0 50px cyan; }
+            100% { text-shadow: 0 0 30px gold, 0 0 90px hotpink; }
+        }
+
+        /* Fixed name banner — no input, pure display */
+        .fixed-name-badge {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0 25px;
+        }
+        .name-badge {
+            background: #221c44;
+            border: 4px solid #ffaaf0;
+            border-radius: 100px;
+            padding: 15px 50px;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fffad0;
+            box-shadow: 0 0 50px #ff70df, 0 0 20px #b37dff inset;
+            letter-spacing: 8px;
+            backdrop-filter: blur(16px);
+            transform: rotate(-1deg);
+            animation: badgeWobble 4s infinite;
+        }
+        @keyframes badgeWobble {
+            0%,100% { transform: rotate(-1deg) scale(1); }
+            50% { transform: rotate(1.5deg) scale(1.02); }
+        }
+
+        /* PHOTO & VIDEO SECTION */
+        .media-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 30px 0 40px;
+        }
+        .photo-frame {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 8px solid #ff9ee7;
+            box-shadow: 0 0 70px #ffa7fc, 0 0 150px #b050ff;
+            overflow: hidden;
+            background: #2f1f4a;
+            flex-shrink: 0;
+            animation: pulsePhoto 3s infinite alternate;
+        }
+        @keyframes pulsePhoto {
+            0% { box-shadow: 0 0 40px #ffa0fc, 0 0 80px #ca7aff; }
+            100% { box-shadow: 0 0 90px #ffdc82, 0 0 180px #ff48b0; }
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-block {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 60px;
+            padding: 20px;
+            border: 3px solid #f27eff;
+            backdrop-filter: blur(10px);
+        }
+        .video-block h3 {
+            color: #ffddf4;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        .video-player {
+            width: 100%;
+            border-radius: 40px;
+            border: 3px solid #ffb0ec;
+            background: black;
+        }
+        .video-actions {
+            display: flex;
+            margin: 15px 0 5px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .video-actions input {
+            flex: 1;
+            background: #1f1642;
+            border: 2px solid #e594ff;
+            border-radius: 50px;
+            padding: 12px 20px;
+            color: white;
+            font-size: 0.95rem;
+        }
+        .video-actions button {
+            background: #bf74ff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 0 20px #ff87f5;
+        }
+
+        /* MESSAGE CAROUSEL (typing animation) */
+        .message-psycho {
+            background: rgba(23, 10, 48, 0.7);
+            border-radius: 80px;
+            padding: 30px 35px;
+            margin: 30px 0 20px;
+            border: 3px solid #ffaef0;
+            min-height: 180px;
+            box-shadow: 0 0 60px #e377ff;
+        }
+        .typing-area {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fffcd9;
+            text-align: center;
+            min-height: 5rem;
+            word-break: break-word;
+            line-height: 1.4;
+            text-shadow: 0 0 6px cyan;
+        }
+        .msg-selectors {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .msg-btn {
+            background: #302559;
+            border: 3px solid #ff93f0;
+            border-radius: 60px;
+            padding: 12px 32px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffe0b5;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 0 15px magenta;
+        }
+        .msg-btn:hover {
+            background: #ff81d5;
+            color: #1a072b;
+            transform: scale(1.05);
+            box-shadow: 0 0 50px #ffdc62;
+        }
+
+        /* BALLOONS + SURPRISE + CONFETTI */
+        .balloon-fleet {
+            display: flex;
+            justify-content: center;
+            gap: 2.3rem;
+            font-size: 3.5rem;
+            margin: 15px 0 10px;
+            filter: drop-shadow(0 0 20px #ff77cc);
+        }
+        .balloon-fleet span {
+            animation: bob 2.7s infinite alternate ease-in-out;
+        }
+        @keyframes bob {
+            from { transform: translateY(0px) rotate(-3deg); }
+            to { transform: translateY(-28px) rotate(3deg); }
+        }
+        .surprise-mega {
+            background: linear-gradient(130deg, #fe84e0, #c363ff, #608cff);
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            padding: 22px 50px;
+            border-radius: 120px;
+            margin: 25px auto;
+            display: block;
+            box-shadow: 0 0 70px magenta, 0 0 30px cyan;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .surprise-mega:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 150px yellow, 0 0 60px red;
+        }
+
+        /* MUSIC BAR (changeable) */
+        .music-dock {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #140e28dd;
+            border-radius: 100px;
+            padding: 15px 25px;
+            border: 2px solid #fa9eff;
+            margin: 30px 0 20px;
+            backdrop-filter: blur(12px);
+        }
+        .music-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .music-actions button {
+            background: #332761;
+            border: 2px solid hotpink;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+        .music-actions input {
+            background: #120d27;
+            border: 2px solid #ff88ee;
+            border-radius: 60px;
+            padding: 10px 20px;
+            width: 280px;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 1.3rem;
+            color: #ffe7af;
+        }
+
+        /* MODAL POPUP */
+        .modal-vid {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000000dd;
+            backdrop-filter: blur(15px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-card {
+            background: #1f1440;
+            padding: 30px;
+            border-radius: 80px;
+            border: 6px solid #f5a3ff;
+            max-width: 850px;
+            width: 90%;
+        }
+        .modal-card video {
+            width: 100%;
+            border-radius: 50px;
+        }
+        .close-modal {
+            float: right;
+            font-size: 3rem;
+            cursor: pointer;
+            color: #ffc2ec;
+        }
+        /* confetti canvas */
+        #confettiCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confettiCanvas"></canvas>
+    <div class="cosmic-birthday">
+        <!-- TITLE with fixed "AYAN" - hardcoded -->
+        <div class="glow-name-title">
+            <span>HAPPY BIRTHDAY</span>
+        </div>
+        <div class="fixed-name-badge">
+            <div class="name-badge">👑 AYAN 👑</div>
+        </div>
+
+        <!-- PHOTO + VIDEO section (photo changeable via double-click, but name stays AYAN) -->
+        <div class="media-grid">
+            <div class="photo-frame" id="photoFrame">
+                <img id="profilePhoto" src="https://placekitten.com/300/300" alt="birthday photo">
+            </div>
+            <div class="video-block">
+                <h3><i class="fas fa-video"></i> birthday cinema</h3>
+                <video id="mainVideo" class="video-player" controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                </video>
+                <div class="video-actions">
+                    <input type="text" id="videoUrlInput" value="https://www.w3schools.com/html/mov_bbb.mp4" placeholder="video URL">
+                    <button id="loadVideoBtn"><i class="fas fa-sync"></i> load</button>
+                </div>
+                <button id="popupVideoBtn" style="background:#ac62ff; border-radius:60px; padding:12px; width:100%; margin-top:12px; border:none; font-weight:bold;">🎬 Play Surprise Video (popup)</button>
+            </div>
+        </div>
+
+        <!-- MESSAGES section (typing effect) with fixed AYAN inside messages -->
+        <div class="message-psycho">
+            <div id="messageDisplay" class="typing-area"></div>
+            <div class="msg-selectors">
+                <button class="msg-btn" data-type="friendly">🎂 friendly</button>
+                <button class="msg-btn" data-type="emotional">❤️ emotional</button>
+                <button class="msg-btn" data-type="funny">😂 funny</button>
+                <button class="msg-btn" data-type="religious">🕊️ religious</button>
+            </div>
+        </div>
+
+        <!-- BALLOONS + SURPRISE (CONFETTI) -->
+        <div class="balloon-fleet">
+            <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+        </div>
+        <button class="surprise-mega" id="surpriseBtn"><i class="fas fa-gift"></i> SURPRISE AYAN 🎁</button>
+
+        <!-- MUSIC with changeable URL -->
+        <div class="music-dock">
+            <div class="music-actions">
+                <button id="playMusic"><i class="fas fa-play"></i></button>
+                <button id="pauseMusic"><i class="fas fa-pause"></i></button>
+                <span style="color:#ffc6ff;">🔊 bg:</span>
+                <input type="text" id="musicInput" value="https://actions.google.com/sounds/v1/alarms/beep_short.ogg">
+                <button id="changeMusicBtn">change</button>
+            </div>
+            <audio id="bgAudio" loop>
+                <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg">
+            </audio>
+        </div>
+
+        <!-- whatsapp + copy link (but name AYAN always) -->
+        <div style="display:flex; gap:20px; justify-content:center; margin:20px 0 5px;">
+            <button id="whatsappBtn" style="background:#302a5a; border:2px solid #ff9cf0; border-radius:50px; padding:12px 25px;"><i class="fab fa-whatsapp"></i> whatsapp</button>
+            <button id="copyLinkBtn" style="background:#302a5a; border:2px solid #ff9cf0; border-radius:50px; padding:12px 25px;"><i class="fas fa-link"></i> copy link</button>
+        </div>
+        <footer>Made with ❤️ | Created by PSYCHO (fixed for AYAN)</footer>
+    </div>
+
+    <!-- MODAL for popup video -->
+    <div id="videoModal" class="modal-vid">
+        <div class="modal-card">
+            <span class="close-modal">&times;</span>
+            <video id="modalVideoPlayer" controls><source src="" type="video/mp4"></video>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ---------- NAME IS FIXED: AYAN (no input, no localStorage for name) ----------
+            // all messages include AYAN
+            const messages = {
+                friendly: ["Happy birthday AYAN! Hope your day is as awesome as you are 🎉", "AYAN, another year of being amazing — enjoy!"],
+                emotional: ["AYAN, you're a beautiful soul. wishing you endless love ❤️", "So grateful for you, AYAN. shine on."],
+                funny: ["AYAN, you're not getting older, you're upgrading! 😂", "Age is just a number, AYAN... a really big one! 🥳"],
+                religious: ["May Allah bless you, AYAN, with happiness and success 🌙", "AYAN, prayers and blessings always."]
+            };
+
+            // typing effect
+            const msgDiv = document.getElementById('messageDisplay');
+            function typeText(text) {
+                let i = 0;
+                msgDiv.innerHTML = '';
+                const interval = setInterval(() => {
+                    if (i < text.length) {
+                        msgDiv.innerHTML += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 50);
+            }
+
+            // show random from category
+            function showMessage(cat) {
+                const arr = messages[cat] || messages.friendly;
+                const rand = arr[Math.floor(Math.random() * arr.length)];
+                typeText(rand);
+            }
+            showMessage('friendly');
+
+            document.querySelectorAll('.msg-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const type = e.target.dataset.type;
+                    showMessage(type);
+                });
+            });
+
+            // ---------- CONFETTI + SURPRISE ----------
+            const canvas = document.getElementById('confettiCanvas');
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            function resizeCanvas() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            let particles = [];
+            function createConfetti() {
+                particles = [];
+                for (let i=0; i<180; i++) {
+                    particles.push({
+                        x: Math.random() * w,
+                        y: Math.random() * h - h,
+                        size: 5+Math.random()*15,
+                        speedY: 2+Math.random()*10,
+                        speedX: -3+Math.random()*6,
+                        color: `hsl(${Math.random()*360}, 90%, 65%)`,
+                    });
+                }
+            }
+            function drawConfetti() {
+                ctx.clearRect(0,0,w,h);
+                particles.forEach((p, idx) => {
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(p.x, p.y, p.size, p.size*0.5);
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.y > h) particles.splice(idx,1);
+                });
+                if (particles.length>0) requestAnimationFrame(drawConfetti);
+            }
+            document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+                createConfetti();
+                drawConfetti();
+                showMessage('friendly');  // extra fun
+            });
+
+            // ---------- PHOTO changeable (double click) ----------
+            const profileImg = document.getElementById('profilePhoto');
+            document.getElementById('photoFrame').addEventListener('dblclick', ()=>{
+                let newUrl = prompt('enter image URL for AYAN’s photo:', profileImg.src);
+                if (newUrl) profileImg.src = newUrl;
+            });
+
+            // ---------- VIDEO ----------
+            const videoPlayer = document.getElementById('mainVideo');
+            const videoInput = document.getElementById('videoUrlInput');
+            const loadVideoBtn = document.getElementById('loadVideoBtn');
+            loadVideoBtn.addEventListener('click', ()=>{
+                if (videoInput.value) {
+                    videoPlayer.src = videoInput.value;
+                    videoPlayer.load();
+                }
+            });
+            // popup modal
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideoPlayer');
+            const closeModal = document.querySelector('.close-modal');
+            document.getElementById('popupVideoBtn').addEventListener('click', ()=>{
+                let currentSrc = videoPlayer.querySelector('source')?.src || videoPlayer.src;
+                if (currentSrc) {
+                    modalVideo.src = currentSrc;
+                    modalVideo.load();
+                    modal.style.display = 'flex';
+                    modalVideo.play();
+                } else alert('load video first');
+            });
+            closeModal.addEventListener('click', ()=>{ modal.style.display='none'; modalVideo.pause(); });
+            window.addEventListener('click', (e)=> { if(e.target === modal) { modal.style.display='none'; modalVideo.pause(); } });
+
+            // ---------- MUSIC ----------
+            const bgAudio = document.getElementById('bgAudio');
+            document.getElementById('playMusic').addEventListener('click', ()=>bgAudio.play());
+            document.getElementById('pauseMusic').addEventListener('click', ()=>bgAudio.pause());
+            document.getElementById('changeMusicBtn').addEventListener('click', ()=>{
+                let url = document.getElementById('musicInput').value;
+                if (url) { bgAudio.src = url; bgAudio.load(); bgAudio.play().catch(()=>{}); }
+            });
+
+            // ---------- WHATSAPP + COPY (always AYAN) ----------
+            document.getElementById('whatsappBtn').addEventListener('click', ()=>{
+                window.open(`https://wa.me/?text=${encodeURIComponent('Happy birthday AYAN! ✨ check out this surprise.')}`, '_blank');
+            });
+            document.getElementById('copyLinkBtn').addEventListener('click', ()=>{
+                let url = window.location.href; // keep as is (no name param needed)
+                navigator.clipboard.writeText(url).then(()=>alert('link copied!'));
+            });
+
+            // slight extra animation on load: we already have portalPop
+
+            // also fix any reference: no name input, perfect
+        })();
+    </script>
+    <!-- hint for photo change -->
+    <div style="position:fixed; bottom:15px; right:20px; background:#22203b; color:#ffd6ff; padding:8px 20px; border-radius:60px; border:2px solid magenta; font-size:0.9rem; z-index:999;">✨ double‑click photo to change image</div>
+</body>
+</html>
